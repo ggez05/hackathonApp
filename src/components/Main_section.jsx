@@ -25,14 +25,13 @@ const Main_section = () => {
     useContext(DropDownContext);
 
   useEffect(() => {
-    console.log(cards);
     const searched = cards.filter((elem) => {
       return elem.title
         .toLocaleLowerCase()
         .includes(searchString.toLocaleLowerCase());
     });
     setSearchedCards(searched);
-  }, [searchString]);
+  }, [searchString, cards]);
   useEffect(() => {
     const searchedactive = cards.filter((elem) => {
       return elem.status === "Active";
@@ -47,18 +46,18 @@ const Main_section = () => {
     });
     setUpcomingCARDS(searchedupcoming);
     const searchedeasy = cards.filter((elem) => {
-      return elem.difficulty === "Easy";
+      return elem.difficulty === "easy";
     });
     setEasyCARDS(searchedeasy);
     const searchedmedium = cards.filter((elem) => {
-      return elem.difficulty === "Medium";
+      return elem.difficulty === "medium";
     });
     setMediumCARDS(searchedmedium);
     const searchedhard = cards.filter((elem) => {
-      return elem.difficulty === "Hard";
+      return elem.difficulty === "hard";
     });
     setHardCARDS(searchedhard);
-  }, [dropDown]);
+  }, [dropDown, cards]);
 
   const handleDropdown = () => {
     setDropDown(!dropDown);

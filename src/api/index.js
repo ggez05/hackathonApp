@@ -5,3 +5,6 @@ const url = "http://localhost:5000/addcard";
 export const fetchCards = () => axios.get(url);
 
 export const createCard = (newCard) => axios.post(url, newCard);
+
+export const updateCard = (id, NewObject) =>
+  axios.patch(`${url}/${id}`, NewObject);

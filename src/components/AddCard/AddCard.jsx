@@ -1,53 +1,60 @@
 import React from "react";
 import Navbar from "../navbar";
 import { DropDownContext } from "../contextAPI";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import {
-  Cards,
-  activeCards,
-  pastCards,
-  easyCards,
-  upcomingCards,
-  hardCards,
-  mediumCards,
-} from "../../assests/cards-info";
+import FileBase from "react-file-base64";
+
 import { useContext } from "react";
 import "./AddCard.style.css";
 import { useState, useEffect } from "react";
-import { createCard } from "../../actions/card";
+import { createCard, updateCard } from "../../actions/card";
 const AddCard = () => {
-  const cards = useSelector((state) => state.cards);
   const dispatch = useDispatch();
-  console.log(cards);
 
   const [chname, setChName] = useState("");
   const [startdate, setStartDate] = useState("");
   const [enddate, setEndDate] = useState("");
   const [descriptiontext, setDescriptionText] = useState("");
   const [imgurl, setimgurl] = useState(null);
-  const [selectedimgUrl, setSelectedImgUrl] = useState(null);
   const [leveltype, setLevelType] = useState("easy");
   const [status, setStatus] = useState("Upcoming");
   const [timerTITLE, setTimerTITLE] = useState("Starts in");
-  const { cardsContext, setCardsContext } = useContext(DropDownContext);
+  const { currentId } = useContext(DropDownContext);
   const navigate = useNavigate();
+  {
+    /** 
   useEffect(() => {
     if (imgurl) {
       setSelectedImgUrl(URL.createObjectURL(imgurl));
     }
   }, [imgurl]);
+*/
+  }
+
+  const card = useSelector((card) =>
+    currentId ? card.cards.find((p) => p._id === currentId) : null
+  );
 
   useEffect(() => {
+    console.log(card);
+    if (card) {
+      setChName(card.title);
+      setEndDate(card.enddate);
+      setDescriptionText(card.description);
+      setLevelType(card.difficulty);
+      setimgurl(card.img);
+    }
+  }, [card]);
+
+  useEffect(() => {
+    console.log(currentId);
     const datecurrent = new Date();
     const setStartDate = new Date(startdate);
     const setEndDate = new Date(enddate);
     const startdiff = datecurrent - setStartDate;
     const enddiff = datecurrent - setEndDate;
-    console.log(startdiff);
-    console.log(enddiff);
-
     startdiff > 0 && enddiff > 0
       ? setStatus("Past")
       : enddiff < 0 && startdiff > 0
@@ -63,8 +70,27 @@ const AddCard = () => {
 
   const addCardsubmitHandler = (e) => {
     e.preventDefault();
+
+    // form validation
+    if (chname === "") {
+      alert("Please Provide a title!!");
+      return;
+    } else if (startdate === "") {
+      alert("Please Specify start date!!");
+      return;
+    } else if (enddate === "") {
+      alert("Please Specify end date!!");
+      return;
+    } else if (descriptiontext === "") {
+      alert("Please Provide a description!!");
+      return;
+    } else if (imgurl === null) {
+      alert("Please Provide an Image!!");
+      return;
+    }
+
     const NewListObject = {
-      img: selectedimgUrl,
+      img: imgurl,
       difficulty: leveltype,
       title: chname,
       description: descriptiontext,
@@ -72,11 +98,17 @@ const AddCard = () => {
       enddate: enddate,
       timertilte: timerTITLE,
     };
-    var newList = Cards;
-    newList.push(NewListObject);
-    dispatch(createCard(NewListObject));
-    console.log(newList);
-    console.log(cards);
+    if (currentId) {
+      dispatch(updateCard(currentId, NewListObject));
+      alert("Updated Hackothon details!");
+    } else {
+      dispatch(createCard(NewListObject));
+      alert("Added New Hackathon");
+    }
+
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
   };
 
   return (
@@ -137,6 +169,14 @@ const AddCard = () => {
             }}
           />
         </div>
+        <div>
+          <FileBase
+            type="file"
+            multiple={false}
+            onDone={({ base64 }) => setimgurl(base64)}
+          />{" "}
+        </div>
+        {/** 
         <label htmlFor="image-input">Image</label>
         <div>
           <input
@@ -150,11 +190,12 @@ const AddCard = () => {
             }}
           />
         </div>
+          */}
         <div className="image-display-addcard">
-          {imgurl && selectedimgUrl ? (
+          {imgurl ? (
             <>
-              <div>Image Preview : </div>{" "}
-              <img src={selectedimgUrl} alt={imgurl.name} />{" "}
+              <div>Image Preview : </div>
+              <img id="base64image" src={imgurl} />
             </>
           ) : (
             ""

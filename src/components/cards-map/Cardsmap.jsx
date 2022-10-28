@@ -1,7 +1,10 @@
 import React from "react";
 import Timer from "../timerComp/timercomp";
+import { useNavigate } from "react-router-dom";
 
 const Cardsmap = ({ Searchedcards }) => {
+  const navigate = useNavigate();
+
   return Searchedcards.map((item, i) => {
     return (
       <div key={i} className="card">
@@ -40,6 +43,7 @@ const Cardsmap = ({ Searchedcards }) => {
         >
           <div className="participate-icon"></div>
           <button
+            onClick={() => navigate("/cardpreview", { state: item })}
             className={`participate-button ${
               item.status === "Past" ? "p-past" : ""
             }`}

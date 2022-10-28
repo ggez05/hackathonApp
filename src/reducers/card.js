@@ -4,6 +4,11 @@ export default (state = [], action) => {
       return action.payload;
     case "CREATE":
       return [...state, action.payload];
+
+    case "UPDATE":
+      return state.map((card) =>
+        card._id === action.payload._id ? action.payload : card
+      );
     default:
       return state;
   }

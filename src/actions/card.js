@@ -19,3 +19,12 @@ export const createCard = (card) => async (dispatch) => {
     console.log(error.message);
   }
 };
+
+export const updateCard = (id, card) => async (dispatch) => {
+  try {
+    const { data } = await api.updateCard(id, card);
+    dispatch({ type: "UPDATE", payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
