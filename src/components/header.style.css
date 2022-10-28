@@ -1,0 +1,70 @@
+.header-container{
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    display: flex;  
+}
+.header-text-holder{
+    margin-top: 18px;
+    margin-left: 15px;
+    font-size: 20px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+.header-image-holder{
+    width: 40px;
+    margin-left: 60px;
+    margin-top: 10px;
+    height: 50px;
+    background-image: url(../assests/logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.middle-upper-box{
+    background-color: #003145;
+    display: flex;
+    height: 570px;
+    justify-content: center;
+}
+
+.middle-box1{
+    width: 100%;
+    margin-left: 140px;
+}
+.middle-box2{
+    width: 48%;
+    margin-top: 90px;
+}
+
+.box1-main-text{
+    margin-left: 70px;
+    font-size: 3.4em;
+    font-weight: 1000px;
+    color: #FFFFFF;
+}
+.middle-box-main-text-wrapper{
+    border-left: 15px solid yellow;
+    border-radius: 2px;
+    margin-top: 100px;
+}
+.box1-text{
+    margin-top: 40px;
+    margin-left: 80px;
+    font-size: 1.4em;
+    width: 55%;
+    color: #ECECEC;
+}
+
+.box1-button-wrapper{
+    margin-left: 80px;
+    margin-top: 45px;
+}
+
+.box1-button{
+    font-size: 1.2em;
+    padding: 12px;
+    font-weight: 550;
+    border-radius: 10px;
+}

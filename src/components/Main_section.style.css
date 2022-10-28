@@ -1,0 +1,209 @@
+.search-box-wrapper{
+    width: 100%;
+    height: 270px;
+    background-color: #002A3B;
+    text-align: center;
+}
+.search-box-text-explore{
+    height: 40%;
+    color: #FFFFFF;
+    font-size: 2.3em;
+    padding-top: 50px;
+    font-weight:bold;
+
+}
+.search-box-input{
+    width: 75%;
+    height: 40px;
+    display:flex;
+    background-color: #FFFFFF;
+
+    border: transparent;
+    border-radius: 10px;
+}
+.search-box-input-wrapper{
+    display: flex;
+    margin-left: 120px;
+}
+.button1{
+    border: none;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+.search-image{
+    background-image: url(../assests/searchIcon.png);
+    height: 15px;
+    width: 30px;
+    background-color: #FFFFFF;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 40px;
+}
+.input-search_box{
+    border: transparent;
+    border-radius: 12px;
+    width: 100%;
+    margin-top: 5px;
+    font-size: 1em;
+    height: 30px;
+}
+input:focus{
+        resize: none;
+        outline: none;
+}
+.filter-button{
+    display: flex;
+    width: 100px;
+    margin-left: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+.button2{
+    border: none;
+    width: 70px;
+    border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        background-color:#FFFFFF;
+        font-size: 1em;
+}
+.filter-icon{
+    background-image: url(../assests/filterDown.png);
+    width: 30px;
+    height: 40px;
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.lastsection{
+    width: 100%;
+        height:auto;
+    background-color: #003145;
+}
+.cards-container{
+    height: auto;
+    display: grid;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    gap: 20px;
+    grid-template-columns: repeat(3,1fr);
+}
+.card{
+    width: 354px;
+    height: 473px;
+    text-align: center;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+}
+.imagecont{
+    width: 100%;
+    height: 174px;
+}
+.card__image{
+    max-height: 174px;
+    max-width: 354px;
+}
+
+.status{
+    border: 2px transparent;
+    margin-left: auto;
+    margin-right: auto;
+    width: 26%;
+    padding: 2px;
+    padding-bottom: 4px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #F2C94C40;
+}
+.active{
+    background-color: #44924C3D;
+}
+.past{
+    background-color: #FF3C002B;
+}
+.title{
+    font-size: 1.3em;
+    margin-left: 10%;
+    font-weight: bold;
+    margin-right: 10%;
+}
+.timertitle{
+    margin-top: 26px;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 14;
+    line-height: 14px;
+
+}
+
+.participate{
+    margin-top: 30px;
+        height: 42px;
+            width: 182.55px;
+            margin-left: 25%;
+    border-radius: 10px;
+    background-color: #44924C;
+    display: flex;
+}
+.participate-icon{
+    background-image: url(../assests/tickmark.png);
+    height: 42px;
+    width: 20px;
+    background-repeat: no-repeat;
+    background-position:center;
+    margin-left: 20px;
+}
+.participate-button{
+    height: 42px;
+    width: 182.55px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: center;
+    background-color: #44924C;
+    border: transparent;
+    border-radius: 10px;
+    color: #FFFFFF;
+}
+.p-past{
+    background-color: gray;
+}
+
+.timer{
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    margin-left: 39%;
+    align-items: center;
+    margin-top: 10px;
+    font-family: Poppins;
+        font-size:22px;
+        font-weight: 600;
+        line-height: 28px;
+        letter-spacing: 0em;
+        text-align: left;
+
+}
+.timer-small{
+    font-size:22px;
+    width: 70%;
+        margin-left: 35%;
+        margin-top: 29px;
+}
+
+.timer-subs{
+            font-family: Inter;
+                font-size: 10px;
+                font-weight: 500;
+                line-height: 10px;
+                letter-spacing: 0em;
+                text-align: center;
+}
+
+.timer-subs-none{
+    display: none;
+}

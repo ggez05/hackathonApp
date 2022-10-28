@@ -1,0 +1,20 @@
+.challange__bar{
+    background-color: #F8F9FD;
+    height: 107px;
+
+    width: 100%;
+}
+
+.challange__bar_text{
+    padding-left: 90px;
+    padding-top: 41px;
+    font-family: Inter;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 29px;
+        letter-spacing: 0em;
+        text-align: left;
+}
+.challange__form{
+    margin-left: 6%;
+}

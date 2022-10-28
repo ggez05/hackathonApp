@@ -1,0 +1,70 @@
+.text-wrapper-upper{
+    width: 100%;
+    height: 120px;
+    text-align: center;
+    padding-top: 30px;
+    font-size: 1.7em;
+}
+
+.green-text{
+    color: green;
+}
+
+.static-cards-wrapper{
+        height: 550px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 22px;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 120px;
+    padding-top: 10px;
+}
+
+.static-card{
+    background-color: #F8F9FD;
+        border-radius: 15px;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 10%;
+}
+
+.static-card-img1{
+    background-image: url(../assests/staticcard1.png);
+    width: 60px;
+    height: 60px;
+        background-position-y: center;
+    background-repeat:no-repeat;
+}
+.static-card-img2 {
+    background-image: url(../assests/staticcard2.png);
+    width: 60px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+}
+.static-card-img3 {
+    background-image: url(../assests/staticcard3.png);
+    width: 60px;
+    height: 60px;
+        background-position-y: center;
+    background-repeat: no-repeat;
+}
+.static-card-img4 {
+    background-image: url(../assests/staticcard4.png);
+    width: 60px;
+    height: 60px;
+        background-position-y: center;
+    background-repeat: no-repeat;
+}
+.static-card-main-text{
+    margin-top: 5px;
+    font-size: 1.6em;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.static-card-sub-text{
+    color: #64607D;
+    font-weight:600;
+}

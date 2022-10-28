@@ -1,0 +1,71 @@
+.middle-container{
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    background-color: #002A3B;
+}
+
+.first-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.second-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.third-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-box-container{
+    width: 45;
+}
+
+.first-box-image-container{
+    width: 70px;
+    height: 56px;
+    margin-left: 150px;
+    background-image: url(../assests/firstbox.png);
+    background-repeat: no-repeat;
+
+}
+.second-box-image-container {
+    height: 56px;
+    width: 70px;
+    margin-left: 150px;
+    background-image: url(../assests/secondbox.png);
+    background-repeat: no-repeat;
+
+}
+.third-box-image-container {
+    height: 56px;
+    width: 70px;
+        margin-left: 150px;
+    background-image: url(../assests/thirdbox.png);
+    background-repeat: no-repeat;
+
+}
+
+.first-box-text-container{
+    width: 100%;
+    border-right: 2px solid #C4C4C4;
+}
+.second-box-text-container {
+        width: 100%;
+        border-right: 2px solid #C4C4C4;
+}
+.third-box-text-container {
+        width: 100%;
+}
+
+.title-box{
+    font-size: 1.2em;
+    color: #FFFFFF;
+}
+.subs-box{
+    color: #FFFFFF;
+}
