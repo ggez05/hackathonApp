@@ -6,10 +6,10 @@ import reportWebVitals from "./reportWebVitals";
 import ContextAPI from "./components/contextAPI";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware, compose } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
 import reducers from "./reducers/index.js";
 import thunk from "redux-thunk";
-const store = createStore(reducers, compose(applyMiddleware(thunk)));
+const store = configureStore({ reducer: reducers, middleware: [thunk] });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

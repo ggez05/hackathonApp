@@ -1,45 +1,64 @@
 import React from "react";
 import { Fragment } from "react";
 import Dropdown from "./dropDownComp/dropdown";
-import {
-  Cards,
-  activeCards,
-  upcomingCards,
-  easyCards,
-  mediumCards,
-  hardCards,
-  pastCards,
-} from "../assests/cards-info";
+
 import Cardsmap from "./cards-map/Cardsmap";
 import "./Main_section.style.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { DropDownContext } from "./contextAPI";
+import { useSelector } from "react-redux";
 const Main_section = () => {
-  const [Searchedcards, setSearchedCards] = useState(Cards);
+  const cards = useSelector((card) => card.cards);
+  const [Searchedcards, setSearchedCards] = useState(cards);
   const [searchString, setSearchString] = useState("");
   const [dropDown, setDropDown] = useState(false);
+  const [activecards, setActiveCARDS] = useState(cards);
+  const [upcomingcards, setUpcomingCARDS] = useState(cards);
+  const [pastcards, setPastCARDS] = useState(cards);
+  const [hardcards, setHardCARDS] = useState(cards);
+  const [easycards, setEasyCARDS] = useState(cards);
+  const [mediumcards, setMediumCARDS] = useState(cards);
 
-  const {
-    isall,
-    isactive,
-    iseasy,
-    ishard,
-    ismedium,
-    ispast,
-    isupcoming,
-    cardsContext,
-  } = useContext(DropDownContext);
+  const { isall, isactive, iseasy, ishard, ismedium, ispast, isupcoming } =
+    useContext(DropDownContext);
 
   useEffect(() => {
-    const searched = Cards.filter((elem) => {
+    console.log(cards);
+    const searched = cards.filter((elem) => {
       return elem.title
         .toLocaleLowerCase()
         .includes(searchString.toLocaleLowerCase());
     });
     setSearchedCards(searched);
   }, [searchString]);
+  useEffect(() => {
+    const searchedactive = cards.filter((elem) => {
+      return elem.status === "Active";
+    });
+    setActiveCARDS(searchedactive);
+    const searchedpast = cards.filter((elem) => {
+      return elem.status === "Past";
+    });
+    setPastCARDS(searchedpast);
+    const searchedupcoming = cards.filter((elem) => {
+      return elem.status === "Upcoming";
+    });
+    setUpcomingCARDS(searchedupcoming);
+    const searchedeasy = cards.filter((elem) => {
+      return elem.difficulty === "Easy";
+    });
+    setEasyCARDS(searchedeasy);
+    const searchedmedium = cards.filter((elem) => {
+      return elem.difficulty === "Medium";
+    });
+    setMediumCARDS(searchedmedium);
+    const searchedhard = cards.filter((elem) => {
+      return elem.difficulty === "Hard";
+    });
+    setHardCARDS(searchedhard);
+  }, [dropDown]);
 
   const handleDropdown = () => {
     setDropDown(!dropDown);
@@ -78,86 +97,84 @@ const Main_section = () => {
         <div className="cards-container">
           {isall && ishard ? (
             <>
-              <Cardsmap Searchedcards={hardCards} />
-              <Cardsmap Searchedcards={easyCards} />
-              <Cardsmap Searchedcards={mediumCards} />
+              <Cardsmap Searchedcards={hardcards} />
+              <Cardsmap Searchedcards={easycards} />
+              <Cardsmap Searchedcards={mediumcards} />
             </>
           ) : isall && ismedium ? (
             <>
-              <Cardsmap Searchedcards={mediumCards} />
-              <Cardsmap Searchedcards={easyCards} />
-              <Cardsmap Searchedcards={hardCards} />
+              <Cardsmap Searchedcards={mediumcards} />
+              <Cardsmap Searchedcards={easycards} />
+              <Cardsmap Searchedcards={hardcards} />
             </>
           ) : isall && iseasy ? (
             <>
-              <Cardsmap Searchedcards={easyCards} />
-              <Cardsmap Searchedcards={mediumCards} />
-              <Cardsmap Searchedcards={hardCards} />
+              <Cardsmap Searchedcards={easycards} />
+              <Cardsmap Searchedcards={mediumcards} />
+              <Cardsmap Searchedcards={hardcards} />
             </>
           ) : isall && isupcoming ? (
             <>
-              <Cardsmap Searchedcards={upcomingCards} />
-              <Cardsmap Searchedcards={activeCards} />
-              <Cardsmap Searchedcards={pastCards} />
+              <Cardsmap Searchedcards={upcomingcards} />
+              <Cardsmap Searchedcards={activecards} />
+              <Cardsmap Searchedcards={pastcards} />
             </>
           ) : isall && ispast ? (
             <>
-              <Cardsmap Searchedcards={pastCards} />
-              <Cardsmap Searchedcards={activeCards} />
-              <Cardsmap Searchedcards={upcomingCards} />
+              <Cardsmap Searchedcards={pastcards} />
+              <Cardsmap Searchedcards={activecards} />
+              <Cardsmap Searchedcards={upcomingcards} />
             </>
           ) : isall && isactive ? (
             <>
-              <Cardsmap Searchedcards={activeCards} />
-              <Cardsmap Searchedcards={upcomingCards} />
-              <Cardsmap Searchedcards={pastCards} />
+              <Cardsmap Searchedcards={activecards} />
+              <Cardsmap Searchedcards={upcomingcards} />
+              <Cardsmap Searchedcards={pastcards} />
             </>
           ) : isactive && ispast ? (
             <>
-              <Cardsmap Searchedcards={activeCards} />
-              <Cardsmap Searchedcards={pastCards} />
+              <Cardsmap Searchedcards={activecards} />
+              <Cardsmap Searchedcards={pastcards} />
             </>
           ) : ispast && isupcoming ? (
             <>
-              <Cardsmap Searchedcards={upcomingCards} />
-              <Cardsmap Searchedcards={pastCards} />
+              <Cardsmap Searchedcards={upcomingcards} />
+              <Cardsmap Searchedcards={pastcards} />
             </>
           ) : isupcoming && isactive ? (
             <>
-              <Cardsmap Searchedcards={upcomingCards} />
-              <Cardsmap Searchedcards={activeCards} />
+              <Cardsmap Searchedcards={upcomingcards} />
+              <Cardsmap Searchedcards={activecards} />
             </>
-          ) : isall ||
-            (ispast && isactive && isupcoming) ||
-            (iseasy && ishard && ismedium) ? (
+          ) : isall || (ispast && isactive && isupcoming) ? (
             <Cardsmap Searchedcards={Searchedcards} />
           ) : iseasy && ishard ? (
             <>
-              <Cardsmap Searchedcards={easyCards} />
-              <Cardsmap Searchedcards={hardCards} />
+              <Cardsmap Searchedcards={easycards} />
+              <Cardsmap Searchedcards={hardcards} />
             </>
           ) : iseasy && ismedium ? (
             <>
-              <Cardsmap Searchedcards={easyCards} />
-              <Cardsmap Searchedcards={mediumCards} />
+              <Cardsmap Searchedcards={easycards} />
+              <Cardsmap Searchedcards={mediumcards} />
             </>
           ) : ismedium && ishard ? (
             <>
-              <Cardsmap Searchedcards={mediumCards} />
-              <Cardsmap Searchedcards={hardCards} />
+              <Cardsmap Searchedcards={mediumcards} />
+              <Cardsmap Searchedcards={hardcards} />
             </>
           ) : ispast ? (
-            <Cardsmap Searchedcards={hardCards} />
+            <Cardsmap Searchedcards={hardcards} />
           ) : isupcoming ? (
-            <Cardsmap Searchedcards={upcomingCards} />
+            <Cardsmap Searchedcards={upcomingcards} />
           ) : iseasy ? (
-            <Cardsmap Searchedcards={easyCards} />
+            <Cardsmap Searchedcards={easycards} />
           ) : ishard ? (
-            <Cardsmap Searchedcards={hardCards} />
+            <Cardsmap Searchedcards={hardcards} />
           ) : ismedium ? (
-            <Cardsmap Searchedcards={mediumCards} />
+            <Cardsmap Searchedcards={mediumcards} />
           ) : isactive ? (
-            <Cardsmap Searchedcards={activeCards} />
+            <Cardsmap Searchedcards={activecards} />
           ) : (
             <Cardsmap Searchedcards={Searchedcards} />
           )}
