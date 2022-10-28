@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "../navbar";
 import { DropDownContext } from "../contextAPI";
 import { Navigate, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
 import {
   Cards,
   activeCards,
@@ -14,7 +16,12 @@ import {
 import { useContext } from "react";
 import "./AddCard.style.css";
 import { useState, useEffect } from "react";
+import { createCard } from "../../actions/card";
 const AddCard = () => {
+  const cards = useSelector((state) => state.cards);
+  const dispatch = useDispatch();
+  console.log(cards);
+
   const [chname, setChName] = useState("");
   const [startdate, setStartDate] = useState("");
   const [enddate, setEndDate] = useState("");
@@ -54,7 +61,8 @@ const AddCard = () => {
       : setTimerTITLE("Starts in");
   }, [startdate, enddate, status]);
 
-  const addCardsubmitHandler = () => {
+  const addCardsubmitHandler = (e) => {
+    e.preventDefault();
     const NewListObject = {
       img: selectedimgUrl,
       difficulty: leveltype,
@@ -66,10 +74,9 @@ const AddCard = () => {
     };
     var newList = Cards;
     newList.push(NewListObject);
-    localStorage.setItem("newList", newList);
-
+    dispatch(createCard(NewListObject));
     console.log(newList);
-    console.log(Cards);
+    console.log(cards);
   };
 
   return (
