@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useContext } from "react";
 import { DropDownContext } from "../contextAPI";
 import "./dropdown.style.css";
@@ -20,6 +20,7 @@ const Dropdown = ({ isdrop }) => {
     setIsPast,
     setIsUpcoming,
   } = useContext(DropDownContext);
+  console.log(iseasy);
 
   return (
     <div className="drop-down-box">
@@ -34,6 +35,8 @@ const Dropdown = ({ isdrop }) => {
             type="checkbox"
             name="all"
             id="all_checkbox"
+            value={isall}
+            checked={isall}
             onClick={() => (isall ? setIsAll(false) : setIsAll(true))}
           />
           <div className="checkbox-text-u">All</div>
@@ -43,6 +46,8 @@ const Dropdown = ({ isdrop }) => {
             type="checkbox"
             name="active"
             id="active_checkbox"
+            value={isactive}
+            checked={isactive}
             onClick={() => (isactive ? setIsActive(false) : setIsActive(true))}
           />
           <div className="checkbox-text-u">Active</div>
@@ -52,6 +57,8 @@ const Dropdown = ({ isdrop }) => {
             type="checkbox"
             name="upcoming"
             id="upcoming_checkbox"
+            value={isupcoming}
+            checked={isupcoming}
             onClick={() =>
               isupcoming ? setIsUpcoming(false) : setIsUpcoming(true)
             }
@@ -64,6 +71,8 @@ const Dropdown = ({ isdrop }) => {
             type="checkbox"
             name="past"
             id="past_checkbox"
+            checked={ispast}
+            value={ispast}
             onClick={() => (ispast ? setIsPast(false) : setIsPast(true))}
           />
           <div className="checkbox-text-u">Past</div>
@@ -76,6 +85,8 @@ const Dropdown = ({ isdrop }) => {
           <input
             type="checkbox"
             name="easy"
+            value={iseasy}
+            checked={iseasy}
             onClick={() => (iseasy ? setIsEasy(false) : setIsEasy(true))}
           />
           <div className="checkbox-text-u">Easy</div>
@@ -84,6 +95,8 @@ const Dropdown = ({ isdrop }) => {
           <input
             type="checkbox"
             name="medium"
+            value={ismedium}
+            checked={ismedium}
             onClick={() => (ismedium ? setIsMedium(false) : setIsMedium(true))}
           />
           <div className="checkbox-text-u">Medium</div>
@@ -92,6 +105,8 @@ const Dropdown = ({ isdrop }) => {
           <input
             type="checkbox"
             name="hard"
+            value={ishard}
+            checked={ishard}
             onClick={() => (ishard ? setIsHard(false) : setIsHard(true))}
           />
           <div className="checkbox-text-u">Hard</div>

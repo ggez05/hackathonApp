@@ -12,6 +12,7 @@ export const DropDownContext = createContext({
   ishard: false,
   ismedium: false,
   currentId: null,
+  deleting: false,
   setIsActive: () => {},
   setIsAll: () => {},
   setIsEasy: () => {},
@@ -22,6 +23,7 @@ export const DropDownContext = createContext({
   cardsContext: Cards,
   setCardsContext: () => {},
   setCurrentId: () => {},
+  setDeleting: () => {},
 });
 
 const ContextAPI = ({ children }) => {
@@ -41,6 +43,7 @@ const ContextAPI = ({ children }) => {
   const [cardsContext, setCardsContext] = useState(Cards);
 
   const [currentId, setCurrentId] = useState(null);
+  const [deleting, setDeleting] = useState(false);
 
   const value = {
     isall,
@@ -52,6 +55,7 @@ const ContextAPI = ({ children }) => {
     ismedium,
     cardsContext,
     currentId,
+    deleting,
     setIsActive,
     setIsAll,
     setIsEasy,
@@ -61,6 +65,7 @@ const ContextAPI = ({ children }) => {
     setIsUpcoming,
     setCardsContext,
     setCurrentId,
+    setDeleting,
   };
   return (
     <DropDownContext.Provider value={value}>

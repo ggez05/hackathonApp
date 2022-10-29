@@ -69,3 +69,107 @@
 .subs-box{
     color: #FFFFFF;
 }
+
+
+@media screen and (max-width:1080px) {
+    .middle-container {
+            height: 600px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            background-color: #002A3B;
+        }
+                .second-box-text-container {
+                    width: 100%;
+                    border-right: none;
+                }
+}
+
+@media screen and (max-width:800px) {
+    .middle-container {
+        height: 600px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        background-color: #002A3B;
+    }
+
+    .second-box-text-container {
+        width: 100%;
+        border-right: none;
+    }
+        .first-box-image-container {
+            width: 70px;
+            height: 56px;
+            margin-left: 70px;
+            background-image: url(../assests/firstbox.png);
+            background-repeat: no-repeat;
+    
+        }
+    
+        .second-box-image-container {
+            height: 56px;
+            width: 70px;
+            margin-left: 70px;
+            background-image: url(../assests/secondbox.png);
+            background-repeat: no-repeat;
+    
+        }
+    
+        .third-box-image-container {
+            height: 56px;
+            width: 70px;
+            margin-left: 70px;
+            background-image: url(../assests/thirdbox.png);
+            background-repeat: no-repeat;
+    
+        }
+}
+
+@media screen and (max-width:800px) {
+    .middle-container {
+        height: 600px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        background-color: #002A3B;
+    }
+        .first-box-text-container {
+            width: 100%;
+            border-right: none;
+        }
+
+    .second-box-text-container {
+        width: 100%;
+        border-right: none;
+    }
+
+    .first-box-image-container {
+        width: 70px;
+        height: 56px;
+        margin-left: 70px;
+        background-image: url(../assests/firstbox.png);
+        background-repeat: no-repeat;
+
+    }
+
+    .second-box-image-container {
+        height: 56px;
+        width: 70px;
+        margin-left: 70px;
+        background-image: url(../assests/secondbox.png);
+        background-repeat: no-repeat;
+
+    }
+
+    .third-box-image-container {
+        height: 56px;
+        width: 70px;
+        margin-left: 70px;
+        background-image: url(../assests/thirdbox.png);
+        background-repeat: no-repeat;
+
+    }
+}
+
+
+
+
+

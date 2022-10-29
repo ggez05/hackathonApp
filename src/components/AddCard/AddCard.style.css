@@ -17,4 +17,67 @@
 }
 .challange__form{
     margin-left: 6%;
+    margin-top: 2%;
+}
+#ch_name{
+    width: 35%;
+    height: 25px;
+    margin: 10px 0 10px 0;
+            border-radius: 5px;
+}
+
+#ch_enddate{
+    width: 35%;
+        height: 25px;
+        margin: 10px 0 10px 0;
+                border-radius: 5px;
+}
+#ch_date{
+    width: 35%;
+        height: 25px;
+        margin: 10px 0 10px 0;
+        border-radius: 5px;
+}
+
+#desc {
+            margin: 20px 0 20px 0;
+            height: 200px;
+            width: 65%;
+            border-radius: 10px;
+}
+
+.addcard_img{
+    margin-bottom: 10px;
+}
+
+#level{
+                margin: 20px 0 20px 0;
+                height: 30px;
+                width: 170px;
+}
+.addcard_button{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #44924C;
+    font-family: Inter;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #F8F9FD;
+}
+label{
+    font-family: Inter;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
+        
+}
+
+.image_label{
+    display: block;
+    padding-bottom: 10px;
 }

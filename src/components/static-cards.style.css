@@ -68,3 +68,16 @@
     color: #64607D;
     font-weight:600;
 }
+
+@media screen and (max-width: 550px) {
+    .static-cards-wrapper {
+            height: 1000px;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 22px;
+            margin-left: 10%;
+            margin-right: 10%;
+            padding-bottom: 120px;
+            padding-top: 10px;
+        }
+}

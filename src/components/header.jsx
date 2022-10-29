@@ -3,11 +3,15 @@ import "./header.style.css";
 import { rocketImg } from "../assests/images";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./navbar";
-
+import { useContext } from "react";
+import { DropDownContext } from "./contextAPI";
 const Header = () => {
+  const { setCurrentId } = useContext(DropDownContext);
+
   const navigate = useNavigate();
 
   const onNavigateHandler = () => {
+    setCurrentId(null);
     navigate("/addcard");
   };
   return (

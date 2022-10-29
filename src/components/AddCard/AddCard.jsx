@@ -17,39 +17,34 @@ const AddCard = () => {
   const [startdate, setStartDate] = useState("");
   const [enddate, setEndDate] = useState("");
   const [descriptiontext, setDescriptionText] = useState("");
-  const [imgurl, setimgurl] = useState(null);
+  const [imgurl, setimgurl] = useState("");
   const [leveltype, setLevelType] = useState("easy");
   const [status, setStatus] = useState("Upcoming");
   const [timerTITLE, setTimerTITLE] = useState("Starts in");
-  const { currentId } = useContext(DropDownContext);
+  const { currentId, setCurrentId } = useContext(DropDownContext);
   const navigate = useNavigate();
-  {
-    /** 
-  useEffect(() => {
-    if (imgurl) {
-      setSelectedImgUrl(URL.createObjectURL(imgurl));
-    }
-  }, [imgurl]);
-*/
-  }
 
-  const card = useSelector((card) =>
-    currentId ? card.cards.find((p) => p._id === currentId) : null
-  );
+  const card = useSelector((card) => card.cards);
+  const selectedCard = card.filter((item) => item._id === currentId);
 
   useEffect(() => {
     console.log(card);
-    if (card) {
-      setChName(card.title);
-      setEndDate(card.enddate);
-      setDescriptionText(card.description);
-      setLevelType(card.difficulty);
-      setimgurl(card.img);
+    if (currentId) {
+      setChName(selectedCard[0].title);
+      const formatDate = new Date(selectedCard[0].enddate);
+      const defaultValue = formatDate.toLocaleDateString("en-CA");
+      const formatStartDate = new Date(selectedCard[0].startDate);
+      const defaultValueStart = formatStartDate.toLocaleDateString("en-CA");
+      setEndDate(defaultValue);
+      setStartDate(defaultValueStart);
+      setDescriptionText(selectedCard[0].description);
+      setimgurl(selectedCard[0].img);
+      setLevelType(selectedCard[0].difficulty);
+      console.log("title set");
     }
-  }, [card]);
+  }, []);
 
   useEffect(() => {
-    console.log(currentId);
     const datecurrent = new Date();
     const setStartDate = new Date(startdate);
     const setEndDate = new Date(enddate);
@@ -88,18 +83,20 @@ const AddCard = () => {
       alert("Please Provide an Image!!");
       return;
     }
-
+    console.log(chname);
     const NewListObject = {
       img: imgurl,
       difficulty: leveltype,
       title: chname,
       description: descriptiontext,
       status: status,
+      startDate: startdate,
       enddate: enddate,
       timertilte: timerTITLE,
     };
     if (currentId) {
       dispatch(updateCard(currentId, NewListObject));
+      setCurrentId(null);
       alert("Updated Hackothon details!");
     } else {
       dispatch(createCard(NewListObject));
@@ -169,7 +166,10 @@ const AddCard = () => {
             }}
           />
         </div>
-        <div>
+        <div className="addcard_img">
+          <label className="image_label" htmlFor="image-input">
+            Image
+          </label>
           <FileBase
             type="file"
             multiple={false}
@@ -177,7 +177,6 @@ const AddCard = () => {
           />{" "}
         </div>
         {/** 
-        <label htmlFor="image-input">Image</label>
         <div>
           <input
             type="file"
@@ -215,7 +214,9 @@ const AddCard = () => {
           </select>
         </div>
         <div className="create__challange_button">
-          <button onClick={addCardsubmitHandler}>Create Challange</button>
+          <button className="addcard_button" onClick={addCardsubmitHandler}>
+            {currentId ? "Update Challange" : "Create Challange"}
+          </button>
         </div>
       </div>
     </div>

@@ -4,17 +4,28 @@ import Navbar from "../navbar";
 import { useNavigate } from "react-router-dom";
 import { DropDownContext } from "../contextAPI";
 import { useContext } from "react";
-
+import { useDispatch } from "react-redux";
+import { deleteCard } from "../../actions/card";
 import "./CardPage.styles.css";
 
 const CardPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { setCurrentId } = useContext(DropDownContext);
+  const dispatch = useDispatch();
+  const { currentId, setCurrentId, setDeleting, deleting } =
+    useContext(DropDownContext);
 
   const edithandler = () => {
     setCurrentId(location.state._id);
     navigate("/addcard");
+  };
+  const deleteHandler = () => {
+    if (window.confirm("Do you want to delete this post ?")) {
+      setDeleting(!deleting);
+      dispatch(deleteCard(location.state._id));
+
+      navigate("/");
+    }
   };
 
   return (
@@ -30,7 +41,9 @@ const CardPage = () => {
       </div>
       <div className="cardpage_middlecontainer">
         <div className="cardpage_middleoverview">Overview</div>
-        <div className="cardpage_deletebutton">Delete</div>
+        <div onClick={deleteHandler} className="cardpage_deletebutton">
+          Delete
+        </div>
         <div onClick={edithandler} className="cardpage_editbutton">
           Edit
         </div>
