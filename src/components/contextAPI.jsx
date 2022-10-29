@@ -1,7 +1,6 @@
 import React from "react";
 import { createContext } from "react";
 import { useState } from "react";
-import { Cards, activeCards } from "../assests/cards-info";
 
 export const DropDownContext = createContext({
   isall: false,
@@ -20,7 +19,6 @@ export const DropDownContext = createContext({
   setIsHard: () => {},
   setIsUpcoming: () => {},
   setIsPast: () => {},
-  cardsContext: Cards,
   setCardsContext: () => {},
   setCurrentId: () => {},
   setDeleting: () => {},
@@ -40,8 +38,6 @@ const ContextAPI = ({ children }) => {
 
   const [ishard, setIsHard] = useState(false);
 
-  const [cardsContext, setCardsContext] = useState(Cards);
-
   const [currentId, setCurrentId] = useState(null);
   const [deleting, setDeleting] = useState(false);
 
@@ -53,7 +49,6 @@ const ContextAPI = ({ children }) => {
     iseasy,
     ishard,
     ismedium,
-    cardsContext,
     currentId,
     deleting,
     setIsActive,
@@ -63,7 +58,6 @@ const ContextAPI = ({ children }) => {
     setIsMedium,
     setIsPast,
     setIsUpcoming,
-    setCardsContext,
     setCurrentId,
     setDeleting,
   };
