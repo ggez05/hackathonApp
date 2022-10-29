@@ -19,24 +19,26 @@ const Cardsmap = ({ Searchedcards }) => {
           {item.status}
         </div>
         <div className="title">{item.title}</div>
-        <div className="timertitle">{item.timertilte}</div>
-        <div
-          className={`timer ${
-            item.timertilte === "Ended On" ? "timer-small" : ""
-          }`}
-        >
-          {item.timertilte === "Ended On" ? (
-            item.enddate
-          ) : (
-            <Timer endDate={item.enddate} />
-          )}
-        </div>
-        <div
-          className={`timer-subs ${
-            item.timertilte === "Ended On" ? "timer-subs-none" : ""
-          }`}
-        >
-          <p>Days Hours Minutes</p>
+        <div className="timer__wrapper">
+          <div className="timertitle">{item.timertilte}</div>
+          <div
+            className={`timer ${
+              item.timertilte === "Ended On" ? "timer-small" : ""
+            }`}
+          >
+            {item.timertilte === "Ended On" ? (
+              item.enddate
+            ) : (
+              <Timer endDate={item.enddate} />
+            )}
+          </div>
+          <div
+            className={`timer-subs ${
+              item.timertilte === "Ended On" ? "timer-subs-none" : ""
+            }`}
+          >
+            <p>Days Hours Minutes</p>
+          </div>
         </div>
         <div
           className={`participate ${item.status === "Past" ? "p-past" : ""}`}

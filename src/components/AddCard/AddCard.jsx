@@ -105,7 +105,7 @@ const AddCard = () => {
 
     setTimeout(() => {
       navigate("/");
-    }, 1000);
+    }, 0);
   };
 
   return (

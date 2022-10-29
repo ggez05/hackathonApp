@@ -129,10 +129,12 @@ input:focus{
     margin-left: 10%;
     font-weight: bold;
     margin-right: 10%;
+    max-height: 54px;
+    overflow: hidden;
 }
 .timertitle{
     margin-top: 26px;
-    font-family: Poppins;
+
     font-weight: 500;
     font-size: 14;
     line-height: 14px;
@@ -143,7 +145,7 @@ input:focus{
     margin-top: auto;
         height: 42px;
         width: 182.55px;
-        margin-left: 25%;
+        margin-left: 24%;
         border-radius: 10px;
         background-color: #44924C;
     position: relative;
@@ -182,7 +184,6 @@ input:focus{
     margin-left: 39%;
     align-items: center;
     margin-top: 10px;
-    font-family: Poppins;
         font-size:22px;
         font-weight: 600;
         line-height: 28px;
@@ -194,8 +195,11 @@ input:focus{
     font-size:22px;
     width: 70%;
         margin-left: 35%;
-        margin-top: 29px;
+        margin-top: 10px;
         padding-bottom: 10px;
+}
+.timer__wrapper{
+    height: 100px;
 }
 
 .timer-subs{
