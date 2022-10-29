@@ -93,89 +93,95 @@ const Main_section = () => {
       </div>
 
       <div className="lastsection">
-        <div className="cards-container">
-          {isall && ishard ? (
-            <>
-              <Cardsmap Searchedcards={hardcards} />
-              <Cardsmap Searchedcards={easycards} />
-              <Cardsmap Searchedcards={mediumcards} />
-            </>
-          ) : isall && ismedium ? (
-            <>
-              <Cardsmap Searchedcards={mediumcards} />
-              <Cardsmap Searchedcards={easycards} />
-              <Cardsmap Searchedcards={hardcards} />
-            </>
-          ) : isall && iseasy ? (
-            <>
-              <Cardsmap Searchedcards={easycards} />
-              <Cardsmap Searchedcards={mediumcards} />
-              <Cardsmap Searchedcards={hardcards} />
-            </>
-          ) : isall && isupcoming ? (
-            <>
-              <Cardsmap Searchedcards={upcomingcards} />
-              <Cardsmap Searchedcards={activecards} />
-              <Cardsmap Searchedcards={pastcards} />
-            </>
-          ) : isall && ispast ? (
-            <>
-              <Cardsmap Searchedcards={pastcards} />
-              <Cardsmap Searchedcards={activecards} />
-              <Cardsmap Searchedcards={upcomingcards} />
-            </>
-          ) : isall && isactive ? (
-            <>
-              <Cardsmap Searchedcards={activecards} />
-              <Cardsmap Searchedcards={upcomingcards} />
-              <Cardsmap Searchedcards={pastcards} />
-            </>
-          ) : isactive && ispast ? (
-            <>
-              <Cardsmap Searchedcards={activecards} />
-              <Cardsmap Searchedcards={pastcards} />
-            </>
-          ) : ispast && isupcoming ? (
-            <>
-              <Cardsmap Searchedcards={upcomingcards} />
-              <Cardsmap Searchedcards={pastcards} />
-            </>
-          ) : isupcoming && isactive ? (
-            <>
-              <Cardsmap Searchedcards={upcomingcards} />
-              <Cardsmap Searchedcards={activecards} />
-            </>
-          ) : isall || (ispast && isactive && isupcoming) ? (
-            <Cardsmap Searchedcards={Searchedcards} />
-          ) : iseasy && ishard ? (
-            <>
-              <Cardsmap Searchedcards={easycards} />
-              <Cardsmap Searchedcards={hardcards} />
-            </>
-          ) : iseasy && ismedium ? (
-            <>
-              <Cardsmap Searchedcards={easycards} />
-              <Cardsmap Searchedcards={mediumcards} />
-            </>
-          ) : ismedium && ishard ? (
-            <>
-              <Cardsmap Searchedcards={mediumcards} />
-              <Cardsmap Searchedcards={hardcards} />
-            </>
-          ) : ispast ? (
-            <Cardsmap Searchedcards={hardcards} />
-          ) : isupcoming ? (
-            <Cardsmap Searchedcards={upcomingcards} />
-          ) : iseasy ? (
-            <Cardsmap Searchedcards={easycards} />
-          ) : ishard ? (
-            <Cardsmap Searchedcards={hardcards} />
-          ) : ismedium ? (
-            <Cardsmap Searchedcards={mediumcards} />
-          ) : isactive ? (
-            <Cardsmap Searchedcards={activecards} />
+        <div className="giforcards">
+          {cards.length === 0 ? (
+            <div className="loadinggif"></div>
           ) : (
-            <Cardsmap Searchedcards={Searchedcards} />
+            <div className="cards-container">
+              {isall && ishard ? (
+                <>
+                  <Cardsmap Searchedcards={hardcards} />
+                  <Cardsmap Searchedcards={easycards} />
+                  <Cardsmap Searchedcards={mediumcards} />
+                </>
+              ) : isall && ismedium ? (
+                <>
+                  <Cardsmap Searchedcards={mediumcards} />
+                  <Cardsmap Searchedcards={easycards} />
+                  <Cardsmap Searchedcards={hardcards} />
+                </>
+              ) : isall && iseasy ? (
+                <>
+                  <Cardsmap Searchedcards={easycards} />
+                  <Cardsmap Searchedcards={mediumcards} />
+                  <Cardsmap Searchedcards={hardcards} />
+                </>
+              ) : isall && isupcoming ? (
+                <>
+                  <Cardsmap Searchedcards={upcomingcards} />
+                  <Cardsmap Searchedcards={activecards} />
+                  <Cardsmap Searchedcards={pastcards} />
+                </>
+              ) : isall && ispast ? (
+                <>
+                  <Cardsmap Searchedcards={pastcards} />
+                  <Cardsmap Searchedcards={activecards} />
+                  <Cardsmap Searchedcards={upcomingcards} />
+                </>
+              ) : isall && isactive ? (
+                <>
+                  <Cardsmap Searchedcards={activecards} />
+                  <Cardsmap Searchedcards={upcomingcards} />
+                  <Cardsmap Searchedcards={pastcards} />
+                </>
+              ) : isactive && ispast ? (
+                <>
+                  <Cardsmap Searchedcards={activecards} />
+                  <Cardsmap Searchedcards={pastcards} />
+                </>
+              ) : ispast && isupcoming ? (
+                <>
+                  <Cardsmap Searchedcards={upcomingcards} />
+                  <Cardsmap Searchedcards={pastcards} />
+                </>
+              ) : isupcoming && isactive ? (
+                <>
+                  <Cardsmap Searchedcards={upcomingcards} />
+                  <Cardsmap Searchedcards={activecards} />
+                </>
+              ) : isall || (ispast && isactive && isupcoming) ? (
+                <Cardsmap Searchedcards={Searchedcards} />
+              ) : iseasy && ishard ? (
+                <>
+                  <Cardsmap Searchedcards={easycards} />
+                  <Cardsmap Searchedcards={hardcards} />
+                </>
+              ) : iseasy && ismedium ? (
+                <>
+                  <Cardsmap Searchedcards={easycards} />
+                  <Cardsmap Searchedcards={mediumcards} />
+                </>
+              ) : ismedium && ishard ? (
+                <>
+                  <Cardsmap Searchedcards={mediumcards} />
+                  <Cardsmap Searchedcards={hardcards} />
+                </>
+              ) : ispast ? (
+                <Cardsmap Searchedcards={hardcards} />
+              ) : isupcoming ? (
+                <Cardsmap Searchedcards={upcomingcards} />
+              ) : iseasy ? (
+                <Cardsmap Searchedcards={easycards} />
+              ) : ishard ? (
+                <Cardsmap Searchedcards={hardcards} />
+              ) : ismedium ? (
+                <Cardsmap Searchedcards={mediumcards} />
+              ) : isactive ? (
+                <Cardsmap Searchedcards={activecards} />
+              ) : (
+                <Cardsmap Searchedcards={Searchedcards} />
+              )}
+            </div>
           )}
         </div>
       </div>

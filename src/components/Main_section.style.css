@@ -191,6 +191,13 @@ input:focus{
         text-align: left;
 
 }
+.loadinggif{
+    height: 200px;
+    width: 100%;
+    background-image: url(../assests/hzk6C.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+}
 .timer-small{
     font-size:22px;
     width: 70%;
