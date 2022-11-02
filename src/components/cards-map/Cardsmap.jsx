@@ -29,7 +29,7 @@ const Cardsmap = ({ Searchedcards }) => {
             {item.timertilte === "Ended On" ? (
               item.enddate
             ) : (
-              <Timer endDate={item.enddate} />
+              <Timer endDate={item.enddate} startdate={item.startDate} />
             )}
           </div>
           <div
