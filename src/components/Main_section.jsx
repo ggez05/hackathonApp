@@ -98,7 +98,13 @@ const Main_section = () => {
             <div className="loadinggif"></div>
           ) : (
             <div className="cards-container">
-              {isall && ishard ? (
+              {(iseasy && ismedium && ishard) ||
+              (iseasy && ismedium && ishard && isall) ? (
+                <Cardsmap Searchedcards={Searchedcards} />
+              ) : (isactive && ispast && isupcoming) ||
+                (isactive && ispast && isupcoming && isall) ? (
+                <Cardsmap Searchedcards={Searchedcards} />
+              ) : isall && ishard ? (
                 <>
                   <Cardsmap Searchedcards={hardcards} />
                   <Cardsmap Searchedcards={easycards} />
@@ -149,8 +155,6 @@ const Main_section = () => {
                   <Cardsmap Searchedcards={upcomingcards} />
                   <Cardsmap Searchedcards={activecards} />
                 </>
-              ) : isall || (ispast && isactive && isupcoming) ? (
-                <Cardsmap Searchedcards={Searchedcards} />
               ) : iseasy && ishard ? (
                 <>
                   <Cardsmap Searchedcards={easycards} />
