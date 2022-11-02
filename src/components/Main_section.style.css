@@ -129,7 +129,7 @@ input:focus{
     margin-left: 10%;
     font-weight: bold;
     margin-right: 10%;
-    max-height: 54px;
+    min-height: 54px;
     overflow: hidden;
 }
 .timertitle{
