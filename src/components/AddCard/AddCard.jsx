@@ -28,7 +28,6 @@ const AddCard = () => {
   const selectedCard = card.filter((item) => item._id === currentId);
 
   useEffect(() => {
-    console.log(card);
     if (currentId) {
       setChName(selectedCard[0].title);
       const formatDate = new Date(selectedCard[0].enddate);
@@ -40,7 +39,6 @@ const AddCard = () => {
       setDescriptionText(selectedCard[0].description);
       setimgurl(selectedCard[0].img);
       setLevelType(selectedCard[0].difficulty);
-      console.log("title set");
     }
   }, []);
 
@@ -83,7 +81,6 @@ const AddCard = () => {
       alert("Please Provide an Image!!");
       return;
     }
-    console.log(chname);
     const NewListObject = {
       img: imgurl,
       difficulty: leveltype,
@@ -105,7 +102,7 @@ const AddCard = () => {
 
     setTimeout(() => {
       navigate("/");
-    }, 0);
+    }, 1000);
   };
 
   return (

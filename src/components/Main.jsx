@@ -3,17 +3,17 @@ import Header from "./header";
 import MiddleComp from "./MiddleComp";
 import StaticCards from "./static-cards";
 import Main_section from "./Main_section";
-import { getCards } from "../actions/card";
 import { useDispatch } from "react-redux";
 import { useContext } from "react";
 import { DropDownContext } from "./contextAPI";
+import { getCards } from "../actions/card";
 const Main = () => {
   const dispatch = useDispatch();
   const { currentId, deleting } = useContext(DropDownContext);
   useEffect(() => {
     dispatch(getCards());
+    console.log("Getting cards now! from main.js");
   }, [dispatch, currentId, deleting]);
-
   return (
     <div>
       <Header />

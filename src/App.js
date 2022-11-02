@@ -2,7 +2,6 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Main from "./components/Main";
 import AddCard from "./components/AddCard/AddCard";
-import Cardsmap from "./components/cards-map/Cardsmap";
 import CardPage from "./components/cardpage/CardPage";
 function App() {
   return (
