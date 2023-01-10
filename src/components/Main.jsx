@@ -11,7 +11,12 @@ const Main = () => {
   const dispatch = useDispatch();
   const { currentId, deleting } = useContext(DropDownContext);
   useEffect(() => {
-    dispatch(getCards());
+    console.log("Getting cards now! from main.js");
+    const dispatchgetcards = async () => {
+      dispatch(getCards());
+      console.log("dispatch function");
+    };
+    dispatchgetcards();
     console.log("Getting cards now! from main.js");
   }, [dispatch, currentId, deleting]);
   return (

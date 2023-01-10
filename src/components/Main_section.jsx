@@ -67,6 +67,7 @@ const Main_section = () => {
   return (
     <Fragment>
       <div className="search-box-wrapper">
+        {console.log(cards)}
         <div className="search-box-text-explore">Explore Challenges</div>
         <div className="search-box-input-wrapper">
           <div className="search-box-input">

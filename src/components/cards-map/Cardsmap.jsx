@@ -1,10 +1,10 @@
 import React from "react";
 import Timer from "../timerComp/timercomp";
 import { useNavigate } from "react-router-dom";
-
+import { useContext } from "react";
+import { DropDownContext } from "../contextAPI";
 const Cardsmap = ({ Searchedcards }) => {
   const navigate = useNavigate();
-
   return Searchedcards.map((item, i) => {
     return (
       <div key={i} className="card">

@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const url = "https://hackathon-projectapp.herokuapp.com/addcard";
+const url = "https://hackathon-app-backend.onrender.com/addcard";
+//const url = "http://localhost:5000/addcard";
 
 export const fetchCards = () => axios.get(url);
 
