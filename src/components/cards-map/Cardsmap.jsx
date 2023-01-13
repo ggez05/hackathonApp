@@ -3,8 +3,24 @@ import Timer from "../timerComp/timercomp";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { DropDownContext } from "../contextAPI";
+import moment from "moment";
+
 const Cardsmap = ({ Searchedcards }) => {
   const navigate = useNavigate();
+
+  const getTime = (startDate) => {
+    const date = moment(startDate);
+    const datenow = moment(new Date());
+    const difff = date.diff(datenow, "hours");
+    return difff;
+  };
+  const getfrom = (startDate) => {
+    const date = moment(startDate);
+    const datenow = moment(new Date());
+    const difff = date.from(datenow);
+    return difff;
+  };
+
   return Searchedcards.map((item, i) => {
     return (
       <div key={i} className="card">
@@ -13,41 +29,38 @@ const Cardsmap = ({ Searchedcards }) => {
         </div>
         <div
           className={`status ${item.status === "Active" ? "active" : ""} ${
-            item.status === "Past" ? "past" : ""
+            getTime(item.startDate) < 0 ? "past" : ""
           }`}
         >
-          {item.status}
+          {getTime(item.startDate) < 0
+            ? "Ended On"
+            : getTime(item.startDate) > 0
+            ? "Starts in"
+            : "Ends in"}
         </div>
         <div className="title">{item.title}</div>
         <div className="timer__wrapper">
-          <div className="timertitle">{item.timertilte}</div>
           <div
             className={`timer ${
-              item.timertilte === "Ended On" ? "timer-small" : ""
+              getTime(item.startDate) < 0 ? "timer-small" : "timer-endson"
             }`}
           >
-            {item.timertilte === "Ended On" ? (
-              item.enddate
-            ) : (
-              <Timer endDate={item.enddate} startdate={item.startDate} />
-            )}
-          </div>
-          <div
-            className={`timer-subs ${
-              item.timertilte === "Ended On" ? "timer-subs-none" : ""
-            }`}
-          >
-            <p>Days Hours Minutes</p>
+            {getTime(item.startDate) < 0
+              ? item.enddate
+              : // <Timer endDate={item.enddate} startdate={item.startDate} />
+                getfrom(item.startDate)}
           </div>
         </div>
         <div
-          className={`participate ${item.status === "Past" ? "p-past" : ""}`}
+          className={`participate ${
+            getTime(item.startDate) < 0 ? "p-past" : ""
+          }`}
         >
           <div className="participate-icon"></div>
           <button
             onClick={() => navigate("/cardpreview", { state: item })}
             className={`participate-button ${
-              item.status === "Past" ? "p-past" : ""
+              getTime(item.startDate) < 0 ? "p-past" : ""
             }`}
           >
             Participate Now

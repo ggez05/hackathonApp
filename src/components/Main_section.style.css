@@ -181,7 +181,6 @@ input:focus{
     display: flex;
     justify-content: space-between;
     width: 20%;
-    margin-left: 39%;
     align-items: center;
     margin-top: 10px;
         font-size:22px;
@@ -190,6 +189,11 @@ input:focus{
         letter-spacing: 0em;
         text-align: left;
 
+}
+.timer-endson{
+    width: fit-content;
+    text-align: center;
+    margin: auto;
 }
 .loadinggif{
     height: 200px;
