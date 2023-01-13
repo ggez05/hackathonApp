@@ -46,7 +46,7 @@ const Cardsmap = ({ Searchedcards }) => {
             }`}
           >
             {getTime(item.startDate) < 0
-              ? item.enddate
+              ? new Date(item.enddate).toISOString().slice(0, 10)
               : // <Timer endDate={item.enddate} startdate={item.startDate} />
                 getfrom(item.startDate)}
           </div>
